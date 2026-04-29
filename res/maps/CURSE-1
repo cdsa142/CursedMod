@@ -1,0 +1,77 @@
+CURSE-1: Hall of Mirrors
+0
+*
+**
+0
+5
+1 1 7
+100000
+1000000
+4000000
+20000000
+30000000
+6000000
+1
+B5F: Dark Crown
+mus_none
+2 0 0 0 0 0 0 2 2 2 2 2 2 2 2 
+0 2 0 0 0 0 0 2 2 2 2 2 2 2 2 
+0 0 2 0 0 0 0 2 2 2 2 2 2 2 2 
+0 0 0 2 0 0 0 2 2 2 2 2 2 2 2 
+0 2 0 0 2 0 0 2 2 2 2 2 2 2 2 
+0 0 2 0 0 2 0 2 2 2 2 2 2 2 2 
+2 0 0 2 0 0 2 2 2 2 2 2 2 2 2 
+0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 
+2 0 0 2 0 0 2 2 2 2 2 2 2 2 2 
+0 0 2 0 0 2 0 2 2 2 2 2 2 2 2 
+0 2 0 0 2 0 0 2 2 2 2 2 2 2 2 
+0 0 0 2 0 0 0 2 2 2 2 2 2 2 2 
+0 0 2 0 0 0 0 2 2 2 2 2 2 2 2 
+0 2 0 0 0 0 0 2 2 2 2 2 2 2 2 
+2 0 0 0 0 0 0 2 2 2 2 2 2 2 2 
+43
+7 8 dark_crown 0
+2 1 enemy 10k
+3 2 enemy 10k
+4 3 enemy 10k
+5 4 enemy 10k
+6 5 enemy 10k
+7 6 enemy 10k
+3 1 enemy 100k
+4 2 enemy 100k
+5 3 enemy 100k
+6 4 enemy 100k
+7 5 enemy 100k
+7 10 enemy 10k
+6 11 enemy 10k
+5 12 enemy 10k
+4 13 enemy 10k
+3 14 enemy 10k
+2 15 enemy 10k
+4 15 enemy 1M
+5 14 enemy 1M
+6 13 enemy 1M
+7 12 enemy 1M
+7 4 enemy 1M
+6 3 enemy 1M
+5 2 enemy 1M
+4 1 enemy 1M
+6 1 enemy 100M
+7 2 enemy 100M
+7 14 enemy 100M
+6 15 enemy 100M
+7 15 enemy 1G
+6 14 enemy 10M
+5 13 enemy 100k
+4 14 enemy 100k
+3 15 enemy 100k
+5 15 enemy 10M
+7 13 enemy 10M
+6 12 enemy 100k
+7 11 enemy 100k
+7 3 enemy 10M
+7 1 enemy 1G
+6 2 enemy 10M
+5 1 enemy 10M
+1
+122 10 116 228 Congratulations - you have reached the Dark Crown, the secret ending of this tower.||||Reaching the highest grades or - even better - going beyond them will require you to seek out the Dark Crowns. Not only the road to them provides an ample opportunity to boost your score, but the Dark Crown itself doubles your final score. 

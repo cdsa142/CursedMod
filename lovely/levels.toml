@@ -1,0 +1,52 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Add the levels scripts
+[[patches]]
+[patches.copy]
+target = "main.lua"
+position = "prepend"
+sources = [
+    "addLevels.lua"
+]
+
+# Add levels to the map list
+[[patches]]
+[patches.pattern]
+target = "menu.lua"
+pattern = "local map_files = love.filesystem.getDirectoryItems(\"res/maps\")"
+position = "after"
+payload = '''
+print("adding levels")
+local newLevels = getLevels()
+table.move(newLevels, 1, #newLevels, #map_files + 1, map_files)
+'''
+match_indent = true
+
+# When a level cannot be found in the base game, assume it's from CursedMod
+# TODO: find a better way to determine the file location, or merge mod maps into res/maps
+[[patches]]
+[patches.pattern]
+target = "menu.lua"
+pattern = "local item = {" 
+position = "before"
+payload = '''
+local filePath = "res/maps/"..map_files[i]
+if not love.filesystem.getInfo(filePath) then
+    print("found a cursed map")
+    filePath = "CursedMod/CursedMod/res/maps/"..map_files[i]
+end
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "menu.lua"
+pattern = "file = \"res/maps/\"..map_files[i],"
+position = "at"
+payload = '''
+file = filePath,
+'''
+match_indent = true

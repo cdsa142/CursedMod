@@ -1,0 +1,28 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Change the save directory to not overwrite any saves. 
+# TowersOfScale is what the mod injector picks for a mod directory, so this was the easiest path forward
+[[patches]]
+[patches.pattern]
+target = "conf.lua"
+position = "at"
+pattern = "t.identity = \"towers_of_scale\"      -- The name of the save directory (string)"
+payload = 't.identity = "TowersOfScale"'
+match_indent = true
+
+
+
+# DEBUG
+
+
+#[[patches]]
+#[patches.pattern]
+#target = "leveldata.lua"
+#pattern = "local ents = tonumber(reader_it())"
+#position = "after"
+#payload = '''
+#print("entity count: " .. ents)
+#'''
+#match_indent = true
