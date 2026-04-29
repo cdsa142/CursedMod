@@ -4,7 +4,7 @@ CURSE-1: Hall of Mirrors
 **
 0
 5
-1 1 7
+1 1 8
 100000
 1000000
 4000000
@@ -29,9 +29,11 @@ mus_none
 0 0 2 0 0 0 0 2 2 2 2 2 2 2 2 
 0 2 0 0 0 0 0 2 2 2 2 2 2 2 2 
 2 0 0 0 0 0 0 2 2 2 2 2 2 2 2 
-43
+45
+2 6 mirror_enemy 1
+2 9 curse_weaken 0
 7 8 dark_crown 0
-2 1 enemy 10k
+2 1 mirror_enemy 10k
 3 2 enemy 10k
 4 3 enemy 10k
 5 4 enemy 10k
@@ -74,4 +76,4 @@ mus_none
 6 2 enemy 10M
 5 1 enemy 10M
 1
-122 10 116 228 Congratulations - you have reached the Dark Crown, the secret ending of this tower.||||Reaching the highest grades or - even better - going beyond them will require you to seek out the Dark Crowns. Not only the road to them provides an ample opportunity to boost your score, but the Dark Crown itself doubles your final score. 
+122 10 116 228 Mirror enemies can be treated like a normal positive or negative enemy||||After defeating them, the opposite enemy will appear where the player came from. 

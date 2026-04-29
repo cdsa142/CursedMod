@@ -1,0 +1,26 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+#add entities script
+[[patches]]
+[patches.copy]
+target = "entitydef.lua"
+position = "prepend"
+payload = "print(\"loading entities\")"
+sources = [
+    "cursed_entitydef.lua"
+]
+
+#invoke add entities
+[[patches]]
+[patches.pattern]
+target = "entitydef.lua"
+pattern = "return entitydef"
+position = "before"
+payload = 'addCursedEntities(entitydef)'
+match_indent = true
+
+
+#DEBUG
+

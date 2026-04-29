@@ -1,0 +1,21 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# utils to add
+[[patches]]
+[patches.copy]
+target = "util.lua"
+position = "prepend"
+sources = [
+    "cursed_util.lua"
+]
+
+#invoke add entities
+[[patches]]
+[patches.pattern]
+target = "util.lua"
+pattern = "return util"
+position = "before"
+payload = 'addUtils(util)'
+match_indent = true
