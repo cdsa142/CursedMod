@@ -19,7 +19,7 @@ pattern = "local map_files = love.filesystem.getDirectoryItems(\"res/maps\")"
 position = "after"
 payload = '''
 print("adding levels")
-local newLevels = getLevels()
+local newLevels = love.filesystem.getDirectoryItems("CursedMod/CursedMod/res/maps")
 table.move(newLevels, 1, #newLevels, #map_files + 1, map_files)
 '''
 match_indent = true

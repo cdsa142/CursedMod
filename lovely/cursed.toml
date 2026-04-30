@@ -13,6 +13,14 @@ payload = 't.identity = "TowersOfScale"'
 match_indent = true
 
 
+#Mount the mod assets
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+position = "before"
+pattern = 'local Settings = require "settings"'
+payload = 'love.filesystem.mount("Mods/CursedMod.zip", "CursedMod", true)'
+match_indent = true
 
 # DEBUG
 

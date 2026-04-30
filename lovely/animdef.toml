@@ -1,0 +1,23 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+#add entities script
+[[patches]]
+[patches.copy]
+target = "animdef.lua"
+position = "prepend"
+payload = "print(\"loading entities\")"
+sources = [
+    "cursed_animdef.lua"
+]
+
+#invoke add entities
+[[patches]]
+[patches.pattern]
+target = "animdef.lua"
+pattern = "return animdef"
+position = "before"
+payload = 'addAnimDef(animdef)'
+match_indent = true
+

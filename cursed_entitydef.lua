@@ -4,49 +4,49 @@ local function addCursedEntities(entitydef)
     entitydef.mirror_enemy = {
         compendium_header = "Enemies",
         spr = {
-            love.graphics.newImage("res/sprite/enemy_slime.png"),
-            love.graphics.newImage("res/sprite/enemy_bat.png"),
-            love.graphics.newImage("res/sprite/enemy_snake.png"),
-            love.graphics.newImage("res/sprite/enemy_scorpion.png"),
-            love.graphics.newImage("res/sprite/enemy_skeleton.png"),
-            love.graphics.newImage("res/sprite/enemy_zombie.png"),
-            love.graphics.newImage("res/sprite/enemy_skeleton_warrior.png"),
-            love.graphics.newImage("res/sprite/enemy_armor.png"),
-            love.graphics.newImage("res/sprite/enemy_warlock.png"),
-            love.graphics.newImage("res/sprite/enemy_demon.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_slime.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_bat.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_snake.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_scorpion.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_skeleton.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_zombie.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_skeleton_warrior.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_armor.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_warlock.png"),
+            love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_demon.png"),
         },
         get_spr = function(ent)
             if ent == nil then
-                return entitydef.enemy.spr[1]
+                return entitydef.mirror_enemy.spr[1]
             end
             if ent.value >= 1000000000 then
-                return entitydef.enemy.spr[10]
+                return entitydef.mirror_enemy.spr[10]
             end
             if ent.value >= 100000000 then
-                return entitydef.enemy.spr[9]
+                return entitydef.mirror_enemy.spr[9]
             end
             if ent.value >= 10000000 then
-                return entitydef.enemy.spr[8]
+                return entitydef.mirror_enemy.spr[8]
             end
             if ent.value >= 1000000 then
-                return entitydef.enemy.spr[7]
+                return entitydef.mirror_enemy.spr[7]
             end
             if ent.value >= 100000 then
-                return entitydef.enemy.spr[6]
+                return entitydef.mirror_enemy.spr[6]
             end
             if ent.value >= 10000 then
-                return entitydef.enemy.spr[5]
+                return entitydef.mirror_enemy.spr[5]
             end
             if ent.value >= 1000 then
-                return entitydef.enemy.spr[4]
+                return entitydef.mirror_enemy.spr[4]
             end
             if ent.value >= 100 then
-                return entitydef.enemy.spr[3]
+                return entitydef.mirror_enemy.spr[3]
             end
             if ent.value >= 10 then
-                return entitydef.enemy.spr[2]
+                return entitydef.mirror_enemy.spr[2]
             end
-            return entitydef.enemy.spr[1]
+            return entitydef.mirror_enemy.spr[1]
         end,
         can_interact = function(ent, game)
             if game.player.power > ent.value or game.player.held_item == "vorpal"  then
@@ -162,7 +162,7 @@ local function addCursedEntities(entitydef)
             end
             
             if not ent.spawnedEntId then
-                ent.spawnedEntId = #floor_ents
+                ent.spawnedEntId = #floor_ents + 1
                 table.insert(floor_ents, {})
             end
             local spawnedEnt = floor_ents[ent.spawnedEntId]
@@ -187,7 +187,7 @@ local function addCursedEntities(entitydef)
     entitydef.curse_weaken = {
         compendium_header = "Elixirs",
         particle = util.standard_particle_spawner,
-        spr = love.graphics.newImage("res/sprite/elixir.png"),
+        spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/sun.png"),
         can_interact = function(ent, game)
             return true
         end,
@@ -199,14 +199,19 @@ local function addCursedEntities(entitydef)
             
             local floor_ents = game.level_data[game.player.floor].entities
             for i=1,#floor_ents do
-                local ent_type = floor_ents[i]
+                local ent_type = floor_ents[i].type
                 if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
                     local entity = floor_ents[i]
-                    print(string.format("found enemy: type %s value %d", ent_type, entity.val))
-                    if entity.val < 10 then
-                        entity.val = 1
+                    if not entity.curseHistory then
+                        entity.curseHistory = {}
+                    end
+                    table.insert(entity.curseHistory, entity.value)
+                    if not entity.value or entity.value < 10 then
+                        entity.value = 1
+                        entity.value_str = "1"
                     else
-                       entity.val = util.roundVal(entity.val / 10)
+                       entity.value = util.roundVal(entity.value / 10)
+                       entity.value_str = util.getValueString(entity.value)
                     end
                 end
             end
@@ -218,6 +223,85 @@ local function addCursedEntities(entitydef)
         end,
         undo_perform = function(ent, game, extra_data)
             ent.type = "curse_weaken"
+            local floor_ents = game.level_data[game.player.floor].entities
+            for i=1,#floor_ents do
+                local ent_type = floor_ents[i].type
+                if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
+                    local entity = floor_ents[i]
+                    if entity.curseHistory then
+                        local lastVal = table.remove(entity.curseHistory)
+                        entity.value = lastVal
+                        entity.value_str = util.getValueString(lastVal)    
+                    else
+                        log("curseHistory missing. Falling back to x10")
+                        local lastVal = util.roundVal(entity.value * 10)
+                        entity.value = lastVal
+                        entity.value_str = util.getValueString(lastVal)
+                    end
+                end
+            end
+        end,
+    }
+
+    entitydef.curse_strengthen = {
+        compendium_header = "Elixirs",
+        particle = util.standard_particle_spawner,
+        spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/moon.png"),
+        can_interact = function(ent, game)
+            return true
+        end,
+        undo_store = function(ent, game)
+            return {}
+        end,
+        interact = function(ent, game)
+            log("strengthen curse activated")
+            
+            local floor_ents = game.level_data[game.player.floor].entities
+            for i=1,#floor_ents do
+                local ent_type = floor_ents[i].type
+                if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
+                    local entity = floor_ents[i]
+                    if not entity.curseHistory then
+                        entity.curseHistory = {}
+                    end
+                    table.insert(entity.curseHistory, entity.value)
+                    if not entity.value then
+                        entity.value = 1
+                        entity.value_str = "1"
+                    elseif entity.value * 10 > MAX_POWER then
+                        entity.value = MAX_POWER
+                        entity.value_str = util.getValueString(entity.value)
+                    else
+                       entity.value = util.roundVal(entity.value * 10)
+                       entity.value_str = util.getValueString(entity.value)
+                    end
+                end
+            end
+
+            game:spawn_anim("curse_weaken",ent.x*16-12,ent.y*16-12)
+            g_sfx:play("hit_rod")
+            ent.type = nil
+            return true
+        end,
+        undo_perform = function(ent, game, extra_data)
+            ent.type = "curse_strengthen"
+            local floor_ents = game.level_data[game.player.floor].entities
+            for i=1,#floor_ents do
+                local ent_type = floor_ents[i].type
+                if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
+                    local entity = floor_ents[i]
+                    if entity.curseHistory then
+                        local lastVal = table.remove(entity.curseHistory)
+                        entity.value = lastVal
+                        entity.value_str = util.getValueString(lastVal)    
+                    else
+                        log("curseHistory missing. Falling back to x10")
+                        local lastVal = util.roundVal(entity.value * 10)
+                        entity.value = lastVal
+                        entity.value_str = util.getValueString(lastVal)
+                    end
+                end
+            end
         end,
     }
 end
