@@ -14,34 +14,50 @@ CURSE-1: Hall of Mirrors
 1
 B5F: Dark Crown
 mus_none
-2 0 0 0 0 0 0 2 2 2 2 2 2 2 2 
-0 2 0 0 0 0 0 2 2 2 2 2 2 2 2 
-0 0 2 0 0 0 0 2 2 2 2 2 2 2 2 
-0 0 0 2 0 0 0 2 2 2 2 2 2 2 2 
-0 2 0 0 2 0 0 2 2 2 2 2 2 2 2 
-0 0 2 0 0 2 0 2 2 2 2 2 2 2 2 
-2 0 0 2 0 0 2 2 2 2 2 2 2 2 2 
-0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 
-2 0 0 2 0 0 2 2 2 2 2 2 2 2 2 
-0 0 2 0 0 2 0 2 2 2 2 2 2 2 2 
-0 2 0 0 2 0 0 2 2 2 2 2 2 2 2 
-0 0 0 2 0 0 0 2 2 2 2 2 2 2 2 
-0 0 2 0 0 0 0 2 2 2 2 2 2 2 2 
-0 2 0 0 0 0 0 2 2 2 2 2 2 2 2 
-2 0 0 0 0 0 0 2 2 2 2 2 2 2 2 
-13
-2 6 mirror_enemy 1
-2 9 curse_weaken 0
-5 9 curse_strengthen 0
-7 8 dark_crown 0
-2 1 mirror_enemy 10k
-3 2 enemy 10k
-3 1 enemy 100k
-4 15 enemy 1M
-7 4 enemy_neg 1M
-6 1 enemy 100M
-7 14 enemy_neg 100M
-7 15 enemy 1G
-7 1 enemy_neg 1G
-1
-122 10 116 228 Mirror enemies can be treated like a normal positive or negative enemy||||After defeating them, the opposite enemy will appear where the player came from. 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+30
+1 1  curse_strengthen 0
+2 1  gate 0
+13 1  mirror_enemy 500
+15 1  mirror_enemy_neg 1k
+1 2  gate 0
+11 3  mirror_enemy_neg 500
+13 3  mirror_enemy 1k
+15 3  mirror_enemy 500
+9 5  mirror_enemy 500
+11 5  mirror_enemy_neg 1k
+13 5  mirror_enemy_neg 500
+7 7  mirror_enemy_neg 500
+9 7  curse_strengthen 0
+11 7  mirror_enemy 500
+15 7  enemy_neg 25k
+1 8  stairs_down 0
+15 8  stairs_up 0
+5 9  mirror_enemy 500
+7 9  curse_weaken 0
+9 9  mirror_enemy_neg 500
+15 9  enemy_neg 25k
+3 11  mirror_enemy_neg 500
+5 11  mirror_enemy_neg 1k
+7 11  mirror_enemy 500
+1 13  mirror_enemy 500
+3 13  mirror_enemy 1k
+5 13  mirror_enemy_neg 500
+1 15  mirror_enemy_neg 1k
+3 15  mirror_enemy 500
+15 15  curse_weaken 0
+0
