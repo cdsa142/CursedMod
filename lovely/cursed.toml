@@ -27,10 +27,30 @@ match_indent = true
 
 #[[patches]]
 #[patches.pattern]
-#target = "leveldata.lua"
+#target = "game.lua"
 #pattern = "local ents = tonumber(reader_it())"
 #position = "after"
 #payload = '''
 #print("entity count: " .. ents)
 #'''
 #match_indent = true
+
+#[[patches]]
+#[patches.pattern]
+#target = "game.lua"
+#pattern = "local ent_type = floor.entities[i].type"
+#position = "before"
+#payload = '''
+#print(i .. ": " floor.entities[i])
+#'''
+#match_indent = true
+
+
+
+[[patches]]
+[patches.pattern]
+target = "leveldata.lua"
+position = "before"
+pattern = 'for i=1,15 do'
+payload = 'print("loading floor " .. self[f].name)'
+match_indent = true

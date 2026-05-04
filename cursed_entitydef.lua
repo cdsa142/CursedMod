@@ -1,8 +1,23 @@
 local util = require "util"
 
+local function isEnemy(type)
+    return type == "enemy" or type == "enemy_neg" or type == "mirror_enemy" or type == "mirror_enemy_neg"
+end
+
+local function findEnemyEntAtCoords(x, y, ents)
+    for i=1,#ents do
+        if ents[i] and ents[i].x == x and ents[i].y == y then
+            if isEnemy(ents[i].type) or not ents[i].type then
+                return i
+            end
+        end
+    end
+    return nil
+end
+
 local function addCursedEntities(entitydef)
     entitydef.mirror_enemy = {
-        compendium_header = "Enemies",
+        compendium_header = "Mirror Enemies",
         spr = {
             love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_slime.png"),
             love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_bat.png"),
@@ -66,7 +81,7 @@ local function addCursedEntities(entitydef)
             return out
         end,
         interact = function(ent, game)
-            game.unlocks:set_unlock_flag("compendium_flag_enemy")
+            game.unlocks:set_unlock_flag("compendium_mirror_enemies")
             if game.level_data.metadata.computed_flags.money_system then
                 game.unlocks:set_unlock_flag("compendium_flag_money")
             end
@@ -160,12 +175,14 @@ local function addCursedEntities(entitydef)
             if play_door_sound then
                 g_sfx:play("key_door")
             end
-            
+            ent.spawnedEntId = findEnemyEntAtCoords(game.player.x, game.player.y, floor_ents)
             if not ent.spawnedEntId then
+                print("no entity at coords " .. game.player.x .. " " .. game.player.y .. ". Creating a new entity")
                 ent.spawnedEntId = #floor_ents + 1
                 table.insert(floor_ents, {})
             end
             local spawnedEnt = floor_ents[ent.spawnedEntId]
+            ent.prevEntValue = spawnedEnt.value
             spawnedEnt.x = game.player.x
             spawnedEnt.y = game.player.y
             spawnedEnt.type = "enemy_neg"
@@ -176,6 +193,10 @@ local function addCursedEntities(entitydef)
         undo_perform = function(ent, game, extra_data)
             ent.type = "mirror_enemy"
             game.level_data[game.player.floor].entities[ent.spawnedEntId].type = nil
+            if ent.prevEntValue then
+                game.level_data[game.player.floor].entities[ent.spawnedEntId].value = ent.prevEntValue
+                game.level_data[game.player.floor].entities[ent.spawnedEntId].value_str = util.getValueString(ent.prevEntValue)
+            end
             for i=1,#extra_data.battle_gates do
                 extra_data.battle_gates[i].type = "battle_gate"
                 extra_data.battle_gates[i].value = extra_data.battle_gates[i].value + 1
@@ -185,7 +206,7 @@ local function addCursedEntities(entitydef)
     }
 
     entitydef.mirror_enemy_neg = {
-    compendium_header = "Negative enemies",
+    compendium_header = "Mirror Enemies",
     spr = {
         love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_slime_neg.png"),
         love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror_enemy_bat_neg.png"),
@@ -249,7 +270,7 @@ local function addCursedEntities(entitydef)
         return out
     end,
     interact = function(ent, game)
-        game.unlocks:set_unlock_flag("compendium_flag_enemy")
+        game.unlocks:set_unlock_flag("compendium_mirror_enemies")
         if game.level_data.metadata.computed_flags.money_system then
             game.unlocks:set_unlock_flag("compendium_flag_money")
         end
@@ -343,10 +364,28 @@ local function addCursedEntities(entitydef)
         if play_door_sound then
             g_sfx:play("key_door")
         end
+        ent.spawnedEntId = findEnemyEntAtCoords(game.player.x, game.player.y, floor_ents)        
+        if not ent.spawnedEntId then
+            print("no entity at coords " .. game.player.x .. " " .. game.player.y.. ". Creating a new entity")
+            ent.spawnedEntId = #floor_ents + 1
+            table.insert(floor_ents, {})
+        end
+        local spawnedEnt = floor_ents[ent.spawnedEntId]
+        ent.prevEntValue = spawnedEnt.value
+        spawnedEnt.x = game.player.x
+        spawnedEnt.y = game.player.y
+        spawnedEnt.type = "enemy"
+        spawnedEnt.value = ent.value
+        spawnedEnt.value_str = ent.value_str
         return true
     end,
     undo_perform = function(ent, game, extra_data)
-        ent.type = "enemy_neg"
+        ent.type = "mirror_enemy_neg"
+        game.level_data[game.player.floor].entities[ent.spawnedEntId].type = nil
+        if ent.prevEntValue then
+            game.level_data[game.player.floor].entities[ent.spawnedEntId].value = ent.prevEntValue
+            game.level_data[game.player.floor].entities[ent.spawnedEntId].value_str = util.getValueString(ent.prevEntValue)
+        end
         for i=1,#extra_data.battle_gates do
             extra_data.battle_gates[i].type = "battle_gate"
             extra_data.battle_gates[i].value = extra_data.battle_gates[i].value + 1
@@ -356,7 +395,7 @@ local function addCursedEntities(entitydef)
 }
 
     entitydef.curse_weaken = {
-        compendium_header = "Elixirs",
+        compendium_header = "Light Curses",
         particle = util.standard_particle_spawner,
         spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/sun.png"),
         can_interact = function(ent, game)
@@ -367,11 +406,11 @@ local function addCursedEntities(entitydef)
         end,
         interact = function(ent, game)
             log("weaken curse activated")
-            
+            game.unlocks:set_unlock_flag("compendium_curse_weaken")
             local floor_ents = game.level_data[game.player.floor].entities
             for i=1,#floor_ents do
                 local ent_type = floor_ents[i].type
-                if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
+                if isEnemy(ent_type) then
                     local entity = floor_ents[i]
                     if not entity.curseHistory then
                         entity.curseHistory = {}
@@ -397,7 +436,7 @@ local function addCursedEntities(entitydef)
             local floor_ents = game.level_data[game.player.floor].entities
             for i=1,#floor_ents do
                 local ent_type = floor_ents[i].type
-                if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
+                if isEnemy(ent_type) then
                     local entity = floor_ents[i]
                     if entity.curseHistory then
                         local lastVal = table.remove(entity.curseHistory)
@@ -415,7 +454,7 @@ local function addCursedEntities(entitydef)
     }
 
     entitydef.curse_strengthen = {
-        compendium_header = "Elixirs",
+        compendium_header = "Dark Curses",
         particle = util.standard_particle_spawner,
         spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/moon.png"),
         can_interact = function(ent, game)
@@ -426,11 +465,11 @@ local function addCursedEntities(entitydef)
         end,
         interact = function(ent, game)
             log("strengthen curse activated")
-            
+            game.unlocks:set_unlock_flag("compendium_curse_strengthen")
             local floor_ents = game.level_data[game.player.floor].entities
             for i=1,#floor_ents do
                 local ent_type = floor_ents[i].type
-                if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
+                if isEnemy(ent_type) then
                     local entity = floor_ents[i]
                     if not entity.curseHistory then
                         entity.curseHistory = {}
@@ -459,7 +498,7 @@ local function addCursedEntities(entitydef)
             local floor_ents = game.level_data[game.player.floor].entities
             for i=1,#floor_ents do
                 local ent_type = floor_ents[i].type
-                if ent_type == "enemy" or ent_type == "enemy_neg" or ent_type == "mirror_enemy" or ent_type == "mirror_enemy_neg" then
+                if isEnemy(ent_type) then
                     local entity = floor_ents[i]
                     if entity.curseHistory then
                         local lastVal = table.remove(entity.curseHistory)
@@ -475,5 +514,86 @@ local function addCursedEntities(entitydef)
             end
         end,
     }
+
+    entitydef.solar_boon = {
+        particle = util.unlock_particle_spawner,
+        spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/Solar_Boon.png"),
+        can_interact = function(ent, game)
+            return true
+        end,
+        interact = function(ent, game)
+            game.unlocks:set_unlock_flag("compendium_royal_boons")
+            game.unlocks:set_unlock_flag("solar_boon")
+            game:clear_anim()
+            game:spawn_anim("perma_unlock",ent.x*16-12,ent.y*16-12)
+            game.player.total_gems = util.get_total_gems()
+            game:show_dialog("alert","ROYAL BOON OBTAINED!\n\n[Lessons from the Light Lord]\n\nStarting from now, a held item Solar Morningstar will spawn somewhere on the stages in which you have obtained a Dark Crown.\nCheck compendium for details!",232,108,{(function(s) s.substate = 0 end)})
+            ent.type = nil
+            return true
+        end,
+    }
+    entitydef.lunar_boon = {
+        particle = util.unlock_particle_spawner,
+        spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/Lunar_Boon.png"),
+        can_interact = function(ent, game)
+            return true
+        end,
+        interact = function(ent, game)
+            game.unlocks:set_unlock_flag("compendium_royal_boons")
+            game.unlocks:set_unlock_flag("lunar_boon")
+            game:clear_anim()
+            game:spawn_anim("perma_unlock",ent.x*16-12,ent.y*16-12)
+            game.player.total_gems = util.get_total_gems()
+            game:show_dialog("alert","ROYAL BOON OBTAINED!\n\n[Prize of the Deep King]\n\nStarting from now, a held item Scimitar of Lunacy will spawn somewhere on the stages in which you have obtained a Dark Crown.\nCheck compendium for details!",232,108,{(function(s) s.substate = 0 end)})
+            ent.type = nil
+            return true
+        end,
+    }
+
+    entitydef.solar_morningstar = {
+    compendium_header = "Solar Morningstar",
+    particle = util.standard_particle_spawner,
+    spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/solar_morningstar.png"),
+    can_interact = function(ent, game)
+        return true
+    end,
+    undo_store = function(ent, game)
+        return {}
+    end,
+    interact = function(ent, game)
+        log("solar morningstar obtained")
+        game.player.held_item = "solar_morningstar"
+        g_sfx:play("equip")
+        ent.type = nil
+        return true
+    end,
+    undo_perform = function(ent, game, extra_data)
+        ent.type = "solar_morningstar"
+    end,
+}
+
+entitydef.lunar_scimitar = {
+    compendium_header = "Scimitar of Lunacy",
+    particle = util.standard_particle_spawner,
+    spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/scimitar_of_lunacy.png"),
+    can_interact = function(ent, game)
+        return true
+    end,
+    undo_store = function(ent, game)
+        return {}
+    end,
+    interact = function(ent, game)
+        log("scimitar of lunacy obtained")
+        game.player.held_item = "lunar_scimitar"
+        g_sfx:play("equip")
+        ent.type = nil
+        return true
+    end,
+    undo_perform = function(ent, game, extra_data)
+        ent.type = "lunar_scimitar"
+    end,
+}
+
+
 end
 

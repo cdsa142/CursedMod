@@ -1,0 +1,26 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+#add entities script
+[[patches]]
+[patches.copy]
+target = "compendium.lua"
+position = "prepend"
+payload = "print(\"loading compendium pages\")"
+sources = [
+    "cursed_compendium.lua"
+]
+
+#invoke add entities
+[[patches]]
+[patches.pattern]
+target = "compendium.lua"
+pattern = "Compendium.__index = Compendium"
+position = "before"
+payload = 'addCompendiumPages(pages)'
+match_indent = true
+
+
+#DEBUG
+
