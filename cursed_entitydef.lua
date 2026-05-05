@@ -15,6 +15,78 @@ local function findEnemyEntAtCoords(x, y, ents)
     return nil
 end
 
+local function dist(ent, ent2)
+    return math.abs(ent.y - ent2.y) + math.abs(ent.x - ent2.x)
+end
+
+local function lunacyTrigger(ents, source)
+    print("lunacy trigger")
+    local chosenEnt = nil
+    local furthestDist = 0
+    for i=1,#ents do
+        local ent_type = ents[i].type
+        if ent_type == "enemy" or ent_type == "mirror_enemy" then
+            local entity = ents[i]
+            if not chosenEnt or dist(source, entity) >= furthestDist then
+                if not chosenEnt or dist(source, entity) > furthestDist or entity.y > chosenEnt.y or (entity.y == chosenEnt.y and entity.x > chosenEnt.x) then
+                   chosenEnt = entity
+                   furthestDist = dist(source, entity) 
+                   source.lunarAffectedEnt = i
+                end
+            end
+        end
+    end
+    if chosenEnt then
+        if not chosenEnt.lunarHistory then
+            chosenEnt.lunarHistory = {}
+            chosenEnt.lunacyStacks = {0}
+        end
+        local originalValue = chosenEnt.value
+        table.insert(chosenEnt.lunarHistory, originalValue)
+        local lunacyStacks = chosenEnt.lunacyStacks[#chosenEnt.lunacyStacks] + 1
+        local newValue = originalValue * 1.2 ^ lunacyStacks
+        print("lunacy from " .. originalValue .. " to " .. newValue)
+        local roundedVal = util.roundVal(newValue)
+        if originalValue ~= roundedVal then
+            lunacyStacks = 0
+        end
+        table.insert(chosenEnt.lunacyStacks, lunacyStacks)
+        chosenEnt.value = roundedVal
+        chosenEnt.value_str = util.getValueString(roundedVal)
+    end
+end
+
+local function solarTrigger(ents, source)
+    print("solar trigger")
+    local chosenEnt = nil
+    local closestDist = 9999
+    for i=1,#ents do
+        local ent_type = ents[i].type
+        if ents[i] ~= source and (ent_type == "enemy_neg" or ent_type == "mirror_enemy_neg") then
+            local entity = ents[i]
+            if not chosenEnt or dist(source, entity) <= closestDist then
+                if not chosenEnt or dist(source, entity) < closestDist or entity.y < chosenEnt.y or (entity.y == chosenEnt.y and entity.x < chosenEnt.x) then
+                    chosenEnt = entity
+                    closestDist = dist(source, entity)
+                    source.solarAffectedEnt = i
+                end
+            end
+        end
+    end
+    if chosenEnt then
+        if not chosenEnt.solarHistory then
+            chosenEnt.solarHistory = {}
+        end
+        local originalValue = chosenEnt.value
+        table.insert(chosenEnt.solarHistory, originalValue)
+        local newValue = math.max(originalValue * 0.8, 1)
+        print("solar from " .. originalValue .. " to " .. newValue)
+        local roundedVal = util.roundVal(newValue)
+        chosenEnt.value = roundedVal
+        chosenEnt.value_str = util.getValueString(roundedVal)
+    end
+end
+
 local function addCursedEntities(entitydef)
     entitydef.mirror_enemy = {
         compendium_header = "Mirror Enemies",
@@ -158,6 +230,9 @@ local function addCursedEntities(entitydef)
             ent.type = nil
             --battle gates
             local floor_ents = game.level_data[game.player.floor].entities
+            if game.player.held_item == "lunar_scimitar" then
+                lunacyTrigger(floor_ents, ent)
+            end
             local play_door_sound = false
             for i=1,#floor_ents do
                 if floor_ents[i].type == "battle_gate" then
@@ -191,6 +266,13 @@ local function addCursedEntities(entitydef)
             return true
         end,
         undo_perform = function(ent, game, extra_data)
+            if ent.lunarAffectedEnt then
+                local lunarEnt = game.level_data[game.player.floor].entities[ent.lunarAffectedEnt]
+                local lastVal = table.remove(lunarEnt.lunarHistory)
+                table.remove(lunarEnt.lunacyStacks)
+                lunarEnt.value = lastVal
+                lunarEnt.value_str = util.getValueString(lastVal)    
+            end
             ent.type = "mirror_enemy"
             game.level_data[game.player.floor].entities[ent.spawnedEntId].type = nil
             if ent.prevEntValue then
@@ -347,6 +429,9 @@ local function addCursedEntities(entitydef)
         ent.type = nil
         --battle gates
         local floor_ents = game.level_data[game.player.floor].entities
+        if game.player.held_item == "solar_morningstar" then
+            solarTrigger(floor_ents, ent)
+        end
         local play_door_sound = false
         for i=1,#floor_ents do
             if floor_ents[i].type == "battle_gate" then
@@ -380,6 +465,12 @@ local function addCursedEntities(entitydef)
         return true
     end,
     undo_perform = function(ent, game, extra_data)
+        if ent.solarAffectedEnt then
+            local solarEnt = game.level_data[game.player.floor].entities[ent.solarAffectedEnt]
+            local lastVal = table.remove(solarEnt.solarHistory)
+            solarEnt.value = lastVal
+            solarEnt.value_str = util.getValueString(lastVal)    
+        end
         ent.type = "mirror_enemy_neg"
         game.level_data[game.player.floor].entities[ent.spawnedEntId].type = nil
         if ent.prevEntValue then

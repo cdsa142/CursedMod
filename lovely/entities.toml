@@ -22,5 +22,56 @@ payload = 'addCursedEntities(entitydef)'
 match_indent = true
 
 
+#trigger Lunacy/Solar
+[[patches]]
+[patches.pattern]
+target = "entitydef.lua"
+pattern = "game.player.gold = game.player.gold + money_gain"
+position = "after"
+payload = '''
+if ent.type == "enemy" and game.player.held_item == "lunar_scimitar" then
+    lunacyTrigger(game.level_data[game.player.floor].entities, ent)
+end
+if ent.type == "enemy_neg" and game.player.held_item == "solar_morningstar" then
+    solarTrigger(game.level_data[game.player.floor].entities, ent)
+end
+'''
+match_indent = true
+
+
+#undo Lunacy
+
+[[patches]]
+[patches.pattern]
+target = "entitydef.lua"
+pattern = 'ent.type = "enemy"'
+position = "after"
+payload = '''
+if ent.lunarAffectedEnt then
+    local lunarEnt = game.level_data[game.player.floor].entities[ent.lunarAffectedEnt]
+    local lastVal = table.remove(lunarEnt.lunarHistory)
+    table.remove(lunarEnt.lunacyStacks)
+    lunarEnt.value = lastVal
+    lunarEnt.value_str = util.getValueString(lastVal)    
+end
+'''
+match_indent = true
+
+#undo solar
+[[patches]]
+[patches.pattern]
+target = "entitydef.lua"
+pattern = 'ent.type = "enemy_neg"'
+position = "after"
+payload = '''
+if ent.solarAffectedEnt then
+    local solarEnt = game.level_data[game.player.floor].entities[ent.solarAffectedEnt]
+    local lastVal = table.remove(solarEnt.solarHistory)
+    solarEnt.value = lastVal
+    solarEnt.value_str = util.getValueString(lastVal)    
+end
+'''
+match_indent = true
+
 #DEBUG
 
