@@ -4,8 +4,7 @@
 
 ## Features
 - **1 New Tower:** Expands your defensive arsenal.
-- **2 New Mechanics:** Introduces **mirror enemies** and **curses** for an added challenge.
-- **Other Additions:** A few extra tweaks and additions to discover.
+- **2 New Mechanics:** Introduces **mirror enemies** and **curses**.
 
 ## Save Data Information
 To protect your vanilla game progression, the Cursed mod uses a completely separate save directory for its savestates and scores. You can start fresh, or you can port over your existing scores (gems) and unlocks to the modded version at any time (see instructions below). 
@@ -20,7 +19,7 @@ To protect your vanilla game progression, the Cursed mod uses a completely separ
 2. **Install the Mod Injector:** Extract `version.dll` from the downloaded Lovely Mod Injector zip file and place it directly into your new (copied) game directory.
 3. **Initialize the Mod Injector:** Start the game from the copied directory. The mod injector will open a log window alongside the game. At this point, the game will still load with your existing vanilla save data.
 4. **Locate the New Save Directory:** Once the game has started, a new save folder will be automatically generated at `%AppData%/Roaming/TowersOfScale` (Note: The original, vanilla save directory is named `towers_of_scale`). Close the game.
-5. **Install the Cursed Mod:** Copy the Cursed mod files into the `Mod` folder located inside the newly created save directory (`%AppData%/Roaming/TowersOfScale/Mod`).
+5. **Install the Cursed Mod:** Copy the Cursed mod zip file into the `Mod` folder located inside the newly created save directory (`%AppData%/Roaming/TowersOfScale/Mod`).
 6. **Play:** Start the game from your copied directory again. You will now load into a fresh save file from the new save directory, and the new Cursed mod tower should be available to use!
 
 ## Porting Over Your Save Data (Optional)

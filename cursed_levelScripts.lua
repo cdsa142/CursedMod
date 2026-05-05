@@ -5,9 +5,9 @@ local function addLevelScripts(level_scripts)
         local scores = Scores.new()
         print("running CURSE-1 level script")
         if game.unlocks.flags["royal_boon2"] and scores.crown_data[game.level_data.metadata.name]==2 then
-            game.level_data[8].entities[#game.level_data[8].entities+1] = {
-                x = 7,
-                y = 13,
+            game.level_data[9].entities[#game.level_data[9].entities+1] = {
+                x = 15,
+                y = 7,
                 type = "rapier",
                 value = 0,
                 value_str = "",
