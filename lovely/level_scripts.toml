@@ -154,38 +154,6 @@ match_indent = true
 [patches.pattern]
 target = "level_scripts.lua"
 pattern = '''
-level_scripts["1-4"] = function (game)
-    local scores = Scores.new()
-'''
-position = "after"
-payload = '''
-print("additional level scripts added")
-if game.unlocks.flags["solar_boon"] and scores.crown_data[game.level_data.metadata.name]==2 then
-    game.level_data[6].entities[#game.level_data[6].entities+1] = {
-        x = 7,
-        y = 1,
-        type = "solar_morningstar",
-        value = 0,
-        value_str = "",
-    }
-end
-
-if game.unlocks.flags["lunar_boon"] and scores.crown_data[game.level_data.metadata.name]==2 then
-    game.level_data[6].entities[#game.level_data[6].entities+1] = {
-        x = 13,
-        y = 1,
-        type = "lunar_scimitar",
-        value = 0,
-        value_str = "",
-    }
-end
-'''
-match_indent = true
-
-[[patches]]
-[patches.pattern]
-target = "level_scripts.lua"
-pattern = '''
 level_scripts["1-5"] = function (game)
     local scores = Scores.new()
 '''

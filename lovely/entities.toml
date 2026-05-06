@@ -67,6 +67,7 @@ payload = '''
 if ent.solarAffectedEnt then
     local solarEnt = game.level_data[game.player.floor].entities[ent.solarAffectedEnt]
     local lastVal = table.remove(solarEnt.solarHistory)
+    table.remove(solarEnt.solarStacks)
     solarEnt.value = lastVal
     solarEnt.value_str = util.getValueString(lastVal)    
 end

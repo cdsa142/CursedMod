@@ -53,6 +53,7 @@ local function lunacyTrigger(ents, source)
         table.insert(chosenEnt.lunacyStacks, lunacyStacks)
         chosenEnt.value = roundedVal
         chosenEnt.value_str = util.getValueString(roundedVal)
+        chosenEnt.particle = util.standard_particle_spawner
     end
 end
 
@@ -76,14 +77,21 @@ local function solarTrigger(ents, source)
     if chosenEnt then
         if not chosenEnt.solarHistory then
             chosenEnt.solarHistory = {}
+            chosenEnt.solarStacks = {0}
         end
         local originalValue = chosenEnt.value
         table.insert(chosenEnt.solarHistory, originalValue)
-        local newValue = math.max(originalValue * 0.8, 1)
+        local solarStacks = chosenEnt.solarStacks[#chosenEnt.solarStacks] + 1
+        local newValue = math.max(originalValue * 0.8 ^ solarStacks, 1)
         print("solar from " .. originalValue .. " to " .. newValue)
         local roundedVal = util.roundVal(newValue)
         chosenEnt.value = roundedVal
+        if originalValue ~= roundedVal then
+            solarStacks = 0
+        end
+        table.insert(chosenEnt.solarStacks, solarStacks)
         chosenEnt.value_str = util.getValueString(roundedVal)
+        chosenEnt.particle = util.standard_particle_spawner
     end
 end
 
@@ -272,6 +280,9 @@ local function addCursedEntities(entitydef)
                 table.remove(lunarEnt.lunacyStacks)
                 lunarEnt.value = lastVal
                 lunarEnt.value_str = util.getValueString(lastVal)    
+                if #lunarEnt.lunarHistory == 0 then
+                    lunarEnt.particle = nil
+                end
             end
             ent.type = "mirror_enemy"
             game.level_data[game.player.floor].entities[ent.spawnedEntId].type = nil
@@ -468,8 +479,12 @@ local function addCursedEntities(entitydef)
         if ent.solarAffectedEnt then
             local solarEnt = game.level_data[game.player.floor].entities[ent.solarAffectedEnt]
             local lastVal = table.remove(solarEnt.solarHistory)
+            table.remove(solarEnt.solarStacks)
             solarEnt.value = lastVal
-            solarEnt.value_str = util.getValueString(lastVal)    
+            solarEnt.value_str = util.getValueString(lastVal)
+            if #solarEnt.solarHistory  == 0 then
+                solarEnt.particle = nil
+            end
         end
         ent.type = "mirror_enemy_neg"
         game.level_data[game.player.floor].entities[ent.spawnedEntId].type = nil
