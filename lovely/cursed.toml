@@ -22,6 +22,17 @@ pattern = 'local Settings = require "settings"'
 payload = 'love.filesystem.mount("Mods/CursedMod.zip", "CursedMod", true)'
 match_indent = true
 
+#Color pallettes
+#[[patches]]
+#[patches.pattern]
+#target = "settings.lua"
+#position = "after"
+#pattern = 'local PALETTES = {'
+#payload = '''
+#    {{0.224, 0.133, 0.021},{0.078, 0.313, 0.078},{0.181, 0.517, 0.066},{0.557, 0.323, 0.127},{0.821, 0.439, 0.061}},
+#'''
+#match_indent = true
+
 # DEBUG
 
 
@@ -47,10 +58,10 @@ match_indent = true
 
 
 
-[[patches]]
-[patches.pattern]
-target = "leveldata.lua"
-position = "before"
-pattern = 'for i=1,15 do'
-payload = 'print("loading floor " .. self[f].name)'
-match_indent = true
+#[[patches]]
+#[patches.pattern]
+#target = "leveldata.lua"
+#position = "before"
+#pattern = 'for i=1,15 do'
+#payload = 'print("loading floor " .. self[f].name)'
+#match_indent = true

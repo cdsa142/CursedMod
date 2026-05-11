@@ -21,6 +21,17 @@ position = "before"
 payload = 'addCursedEntities(entitydef)'
 match_indent = true
 
+#allow entities with a flag set to hide their value
+[[patches]]
+[patches.pattern]
+target = "leveldata.lua"
+pattern = 'if entities[i].value_str ~= "0" then'
+position = "at"
+payload = 'if entities[i].value_str ~= "0" and not entitydef[entities[i].type].hide_val then'
+match_indent = true
+
+
+
 
 #trigger Lunacy/Solar
 [[patches]]

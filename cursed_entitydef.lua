@@ -700,6 +700,68 @@ entitydef.lunar_scimitar = {
     end,
 }
 
+entitydef.pay_spike = {
+    compendium_header = "Toll Gate",
+    spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/pay_spike.png"),
+    feather_pathfind = true,
+    can_interact = function(ent, game)
+        return game.player.gold >= ent.value
+    end,
+    undo_store = function(ent, game)
+        return {}
+    end,
+    interact = function(ent, game)        
+        game.unlocks:set_unlock_flag("compendium_toll_gates")
+        g_sfx:play("coins")
+        game.player.gold = game.player.gold - ent.value
+        return true
+    end,
+    undo_perform = function(ent, game, extra_data)
+    end,
+}
+
+entitydef.portal = {
+    spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/portal.png"),
+    hide_val = true,
+    particle = util.standard_particle_spawner,
+    can_interact = function(ent, game)
+        return true
+    end,
+    undo_store = function(ent, game)
+        return { prev_floor = game.player.floor, }
+    end,
+    interact = function(ent, game)
+        game.player.floor = ent.value
+        g_sfx:play("hit_rod")
+        game:clear_anim()
+        game:spawn_anim("trail_stairs",ent.x*16-12,ent.y*16-12)
+        log("moved to floor "..game.player.floor)
+        return true
+    end,
+    undo_perform = function(ent, game, extra_data)
+        game.player.floor = extra_data.prev_floor
+    end
+}
+
+entitydef.power_set = {
+    compendium_header = "Power Resetter",
+    spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/power_set.png"),
+    feather_pathfind = true,
+    can_interact = function(ent, game)
+        return true
+    end,
+    undo_store = function(ent, game)
+        return {}
+    end,
+    interact = function(ent, game)        
+        game.unlocks:set_unlock_flag("compendium_toll_gates")
+        g_sfx:play("equip")
+        game.player.power = ent.value
+        return true
+    end,
+    undo_perform = function(ent, game, extra_data)
+    end,
+}
 
 end
 
