@@ -50,3 +50,11 @@ payload = '''
 file = filePath,
 '''
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "leveldata.lua"
+pattern = 'if line[3] == "money" or line[3] == "money_door" then'
+position = "at"
+payload = 'if line[3] == "money" or line[3] == "money_door" or line[3] == "pay_spike" then'
+match_indent = true
