@@ -30,9 +30,6 @@ position = "at"
 payload = 'if entities[i].value_str ~= "0" and not entitydef[entities[i].type].hide_val then'
 match_indent = true
 
-
-
-
 #trigger Lunacy/Solar
 [[patches]]
 [patches.pattern]

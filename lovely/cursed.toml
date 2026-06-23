@@ -65,3 +65,4 @@ position = "before"
 pattern = 'for i=1,15 do'
 payload = 'print("loading floor " .. self[f].name)'
 match_indent = true
+
