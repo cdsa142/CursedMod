@@ -57,7 +57,7 @@ local function addLevelScripts(level_scripts)
     level_scripts["CURSE-2"] = function (game)
         local scores = Scores.new()
         if game.unlocks.flags["royal_boon2"] and scores.crown_data[game.level_data.metadata.name]==2 then
-            game.level_data[23].entities[#game.level_data[23].entities+1] = {
+            game.level_data[25].entities[#game.level_data[25].entities+1] = {
                 x = 13,
                 y = 3,
                 type = "rapier",
@@ -67,7 +67,7 @@ local function addLevelScripts(level_scripts)
         end
 
         if game.unlocks.flags["solar_boon"] and scores.crown_data[game.level_data.metadata.name]==2 then
-            game.level_data[23].entities[#game.level_data[23].entities+1] = {
+            game.level_data[25].entities[#game.level_data[25].entities+1] = {
                 x = 15,
                 y = 1,
                 type = "solar_morningstar",
@@ -77,7 +77,7 @@ local function addLevelScripts(level_scripts)
         end
 
         if game.unlocks.flags["lunar_boon"] and scores.crown_data[game.level_data.metadata.name]==2 then
-            game.level_data[23].entities[#game.level_data[23].entities+1] = {
+            game.level_data[25].entities[#game.level_data[25].entities+1] = {
                 x = 15,
                 y = 15,
                 type = "lunar_scimitar",

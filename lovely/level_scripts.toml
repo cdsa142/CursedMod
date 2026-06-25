@@ -99,7 +99,7 @@ print("additional level scripts added")
 if game.unlocks.flags["solar_boon"] and scores.crown_data[game.level_data.metadata.name]==2 then
     game.level_data[6].entities[#game.level_data[6].entities+1] = {
         x = 8,
-        y = 2,
+        y = 6,
         type = "solar_morningstar",
         value = 0,
         value_str = "",
@@ -328,7 +328,7 @@ if game.unlocks.flags["solar_boon"] and scores.crown_data[game.level_data.metada
     game.level_data[21].walls[8][4] = 0
     game.level_data[21].entities[#game.level_data[21].entities+1] = {
         x = 8,
-        y = 1,
+        y = 4,
         type = "solar_morningstar",
         value = 0,
         value_str = "",
@@ -336,9 +336,10 @@ if game.unlocks.flags["solar_boon"] and scores.crown_data[game.level_data.metada
 end
 
 if game.unlocks.flags["lunar_boon"] and scores.crown_data[game.level_data.metadata.name]==2 then
+    game.level_data[12].walls[8][13] = 0
     game.level_data[12].entities[#game.level_data[12].entities+1] = {
         x = 8,
-        y = 4,
+        y = 13,
         type = "lunar_scimitar",
         value = 0,
         value_str = "",

@@ -11,7 +11,7 @@ CURSE-2: Arcade Night
 15000000
 25000000
 55000000
-26
+27
 0F: Welcome!
 mus_none
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
@@ -33,11 +33,11 @@ mus_none
 8 4  portal 2
 8 5  power_set 1k
 10 6  enemy_neg 10k
-6 7  pay_spike 50
+6 7  pay_spike 25
 8 7  enemy 10k
 10 7  barrier_d 0
-4 8  money 50
-5 8  money 50
+4 8  money 25
+5 8  money 25
 8 8  enemy 10k
 9 8  enemy 10k
 10 8  enemy 10k
@@ -77,10 +77,10 @@ mus_none
 1 1  enemy 500
 2 1  enemy 500
 3 1  enemy 500
-5 1  money 50
-7 1  money 50
-9 1  money 50
-11 1  money 50
+5 1  money 25
+7 1  money 25
+9 1  money 25
+11 1  money 25
 13 1  enemy 500
 14 1  enemy 500
 15 1  enemy 500
@@ -110,13 +110,13 @@ mus_none
 8 7  enemy 250
 9 7  enemy 250
 1 8  enemy 1k
-2 8  enemy 500
+2 8  enemy 150
 3 8  door 0
 7 8  enemy 250
 8 8  enemy 1k
 9 8  enemy 250
 13 8  door 0
-14 8  enemy 500
+14 8  enemy 150
 15 8  enemy 1k
 7 9  enemy 250
 8 9  enemy 250
@@ -131,8 +131,8 @@ mus_none
 8 11  door 0
 1 12  enemy 1k
 2 12  door 0
-6 12  portal 24
-10 12  portal 25
+6 12  portal 25
+10 12  portal 26
 14 12  door 0
 15 12  enemy 1k
 15 15  stairs_up 0
@@ -157,8 +157,8 @@ mus_none
 2 0 2 2 2 2 2 2 2 2 2 2 2 0 2
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 44
-2 2  money 50
-4 2  money 50
+2 2  money 25
+4 2  money 25
 5 2  mirror_enemy_neg 50k
 11 2  mirror_enemy_neg 100k
 12 2  key 0
@@ -169,12 +169,12 @@ mus_none
 4 4  dark_key 0
 5 4  mirror_enemy_neg 5k
 11 4  mirror_enemy_neg 10k
-12 4  money 50
+12 4  money 25
 14 4  enemy_neg 10k
 2 5  enemy 5k
 14 5  enemy_neg 5k
 2 6  enemy 1k
-4 6  money 50
+4 6  money 25
 5 6  mirror_enemy_neg 500
 11 6  mirror_enemy_neg 1k
 12 6  key 0
@@ -185,19 +185,19 @@ mus_none
 4 8  key 0
 5 8  mirror_enemy_neg 50
 11 8  mirror_enemy_neg 100
-12 8  money 50
+12 8  money 25
 14 8  enemy_neg 100
 2 9  enemy 50
 14 9  enemy_neg 50
 2 10  enemy 10
-4 10  money 50
+4 10  money 25
 5 10  mirror_enemy_neg 5
 11 10  mirror_enemy_neg 10
 12 10  key 0
 14 10  enemy_neg 10
 2 11  enemy 5
 14 11  enemy_neg 5
-2 14  pay_spike 50
+2 14  pay_spike 25
 14 14  barrier_d 0
 1 15  stairs_up 0
 15 15  stairs_down 0
@@ -219,7 +219,7 @@ mus_none
 0 0 0 0 0 2 0 2 0 2 0 0 0 0 0
 2 2 2 2 2 2 0 2 0 2 2 2 2 2 2
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-132
+147
 1 1  gate 0
 2 1  gate 0
 3 1  gate 0
@@ -310,25 +310,40 @@ mus_none
 13 6  gate 0
 14 6  gate 0
 15 6  gate 0
+1 7  gate 0
+2 7  gate 0
+3 7  gate 0
+4 7  gate 0
+5 7  gate 0
 6 7  gate 0
 7 7  gate 0
 8 7  gate 0
 9 7  gate 0
 10 7  gate 0
+11 7  gate 0
+12 7  gate 0
+13 7  gate 0
+14 7  gate 0
+15 7  gate 0
+6 8  gate 0
 7 8  gate 0
 8 8  gate 0
 9 8  gate 0
+10 8  gate 0
 1 9  enemy 20
+7 9  gate 0
+8 9  gate 0
+9 9  gate 0
 15 9  enemy 20
 1 10  enemy 20
 2 10  enemy 20
 14 10  enemy 20
 15 10  enemy 20
 1 11  enemy 20
-3 11  money 50
+3 11  money 25
 4 11  gate 0
 12 11  gate 0
-13 11  money 50
+13 11  money 25
 15 11  enemy 20
 2 12  gate 0
 3 12  gate 0
@@ -336,19 +351,19 @@ mus_none
 11 12  gate 0
 13 12  gate 0
 14 12  gate 0
-1 13  money 50
-2 13  money 50
+1 13  money 25
+2 13  money 25
 3 13  gate 0
 4 13  gate 0
-5 13  money 50
+5 13  money 25
 7 13  barrier_u 0
 9 13  spikes 1
-11 13  money 50
+11 13  money 25
 12 13  gate 0
 13 13  gate 0
-14 13  money 50
-15 13  money 50
-7 14  pay_spike 50
+14 13  money 25
+15 13  money 25
+7 14  pay_spike 25
 9 14  barrier_d 0
 1 15  stairs_down 0
 15 15  stairs_up 0
@@ -358,22 +373,22 @@ mus_none
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 2 2 2 2 2 2 0 0 0 2 2 2 2 2 2
-2 2 2 2 2 2 0 0 0 2 2 2 2 2 2
-2 2 2 2 0 0 2 0 2 0 0 2 2 2 2
-2 2 2 2 0 0 2 0 2 0 0 2 2 2 2
+2 2 2 0 0 2 0 0 0 2 0 0 2 2 2
+2 2 2 0 0 2 2 0 2 2 0 0 2 2 2
+2 2 2 0 0 0 2 0 2 0 0 0 2 2 2
 2 2 2 2 2 0 2 0 2 0 2 2 2 2 2
 2 2 2 0 0 0 0 0 0 0 2 2 2 2 2
 2 2 2 0 0 0 0 0 0 0 2 2 2 2 2
 2 2 2 0 0 0 0 0 0 0 2 2 2 2 2
 2 2 2 0 0 0 0 0 0 0 2 0 0 0 0
 2 2 2 0 0 0 0 0 0 0 2 0 0 0 0
-2 2 2 0 0 0 0 0 0 0 0 0 0 0 0
-2 2 2 0 2 2 2 2 2 2 2 0 2 2 2
+2 2 0 0 0 0 0 0 0 0 0 0 0 0 0
+2 2 0 2 2 2 2 2 2 2 2 0 2 2 2
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-20
-8 3  portal 18
-5 5  portal 17
-11 5  portal 19
+21
+8 3  portal 19
+5 5  portal 18
+11 5  portal 20
 6 7  battle_gate 3
 8 7  battle_gate 6
 10 7  battle_gate 9
@@ -385,9 +400,10 @@ mus_none
 9 11  enemy_neg 50
 5 12  enemy_neg 2k
 9 12  enemy_neg 25
+3 13  pay_spike 25
 7 13  enemy_neg 500
 11 13  barrier_r 0
-4 14  pay_spike 50
+3 14  pay_spike 25
 12 14  barrier_d 0
 1 15  stairs_up 0
 15 15  stairs_down 0
@@ -413,22 +429,22 @@ mus_none
 2 2 2 2 2 0 2 2 2 2 2 2 2 0 2
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 19
-3 3  portal 16
-13 3  portal 16
+3 3  portal 17
+13 3  portal 17
 3 4  popup 0
 13 4  popup 0
 3 5  power_set 10
 13 5  power_set 10
-8 8  portal 16
+8 8  portal 17
 8 9  popup 0
 8 10  power_set 10
 4 12  power_set 10
 9 12  power_set 10
 10 12  popup 0
-11 12  portal 16
-3 13  portal 16
+11 12  portal 17
+3 13  portal 17
 4 13  popup 0
-6 14  pay_spike 50
+6 14  pay_spike 25
 14 14  barrier_d 0
 1 15  stairs_down 0
 15 15  stairs_up 0
@@ -455,7 +471,7 @@ mus_none
 0 3 0 3 0 0 0 0 0 0 0 3 0 3 0
 3 3 3 3 0 0 0 0 0 0 0 3 3 3 3
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-66
+65
 1 1  enemy 2k
 2 1  enemy 2k
 4 1  money 25
@@ -507,17 +523,16 @@ mus_none
 2 9  door 0
 14 9  door 0
 15 9  enemy 3k
-1 12  door 0
-3 12  door 0
-7 12  money 50
-8 12  money 50
-9 12  money 50
-13 12  door 0
-15 12  door 0
-1 13  money 50
-3 13  money 50
-13 13  money 50
-15 13  money 50
+1 12  money_door 50
+3 12  money_door 50
+7 12  money 25
+9 12  money 25
+13 12  money_door 50
+15 12  money_door 50
+1 13  enemy 5k
+3 13  enemy 5k
+13 13  enemy 5k
+15 13  enemy 5k
 1 15  stairs_up 0
 12 15  dark_door 0
 13 15  dark_door 0
@@ -626,7 +641,97 @@ mus_none
 1 15  stairs_down 0
 15 15  stairs_up 0
 0
-8F: Take the Deal
+8F: Mystery Boxes
+mus_none
+0 0 3 0 0 0 3 0 3 0 0 0 3 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 2 0 0
+0 0 3 3 3 3 3 0 3 3 3 3 3 0 0
+0 0 3 0 0 0 3 0 3 0 0 0 3 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 2 0 0
+0 0 3 0 0 0 3 0 3 0 0 0 3 0 0
+0 0 3 3 3 3 3 0 3 3 3 3 3 0 0
+0 0 3 0 0 0 3 0 3 0 0 0 3 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 2 0 0
+0 0 3 0 0 0 3 0 3 0 0 0 3 0 0
+0 0 3 3 3 3 3 0 3 3 3 3 3 0 0
+0 0 3 0 0 0 3 0 3 0 0 0 3 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 2 0 0
+3 0 3 3 3 3 3 0 3 3 3 3 3 0 3
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+71
+4 1  enemy 250
+5 1  enemy 500
+6 1  enemy 250
+10 1  enemy 250
+11 1  enemy 250
+12 1  enemy 250
+4 2  hyper_pickaxe 0
+5 2  key 0
+6 2  enemy_neg 1k
+7 2  barrier_l 0
+9 2  barrier_r 0
+10 2  enemy 250
+11 2  dark_rod 0
+12 2  hyper_pickaxe 0
+4 4  enemy 1k
+5 4  enemy 500
+6 4  enemy 250
+10 4  enemy_neg 250
+11 4  enemy_neg 500
+12 4  enemy_neg 1k
+4 5  hyper_pickaxe 0
+5 5  enemy_neg 1k
+6 5  enemy 500
+7 5  barrier_l 0
+9 5  barrier_r 0
+10 5  key 0
+11 5  enemy 2k
+12 5  hyper_pickaxe 0
+4 6  enemy 1k
+5 6  enemy 500
+6 6  enemy 250
+10 6  enemy 250
+11 6  enemy 500
+12 6  enemy 1k
+4 8  enemy 1k
+5 8  enemy 500
+6 8  enemy 250
+10 8  enemy 2k
+11 8  enemy 2k
+12 8  enemy 2k
+4 9  hyper_pickaxe 0
+5 9  dark_key 0
+6 9  enemy_neg 1k
+7 9  barrier_l 0
+9 9  barrier_r 0
+10 9  enemy_neg 5k
+11 9  enemy_neg 2k
+12 9  hyper_pickaxe 0
+4 10  enemy 1k
+5 10  enemy 500
+6 10  enemy 250
+10 10  enemy 2k
+11 10  enemy 2k
+12 10  enemy 2k
+4 12  enemy 150
+5 12  enemy 250
+6 12  enemy 150
+10 12  enemy_neg 500
+11 12  key 0
+12 12  enemy_neg 500
+4 13  hyper_pickaxe 0
+5 13  vorpal 0
+6 13  enemy_neg 500
+7 13  barrier_l 0
+9 13  barrier_r 0
+10 13  enemy 500
+11 13  enemy 1k
+12 13  hyper_pickaxe 0
+8 14  pay_spike 50
+1 15  stairs_down 0
+15 15  stairs_up 0
+0
+9F: Take the Deal
 mus_none
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 3 3 3 3 3 3 3 3 3 3 3 3 3 0
@@ -644,14 +749,14 @@ mus_none
 3 3 3 3 3 0 3 3 3 3 3 3 3 0 3
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 13
-3 3  portal 21
+3 3  portal 22
 4 3  popup 0
 12 3  popup 0
-13 3  portal 22
-3 12  portal 20
+13 3  portal 23
+3 12  portal 21
 4 12  popup 0
 12 12  popup 0
-13 12  portal 23
+13 12  portal 24
 6 13  pay_spike 50
 6 14  pay_spike 50
 14 14  barrier_d 0
@@ -662,7 +767,7 @@ mus_none
 128 68 48 16 Door 3
 72 178 48 16 Door 1
 128 178 48 16 Door 4
-9F: Coin Drop
+10F: Coin Drop
 mus_none
 3 0 0 0 0 0 0 0 0 2 0 0 0 0 3
 3 0 3 3 3 3 3 3 0 3 3 1 3 0 3
@@ -750,7 +855,7 @@ mus_none
 1 15  stairs_down 0
 15 15  stairs_up 0
 0
-10F: Kart Race
+11F: Kart Race
 mus_none
 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0
@@ -831,7 +936,7 @@ mus_none
 1 15  stairs_up 0
 15 15  stairs_down 0
 0
-11F: Top Prize
+12F: Top Prize
 mus_none
 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
 3 3 3 3 3 3 3 0 3 3 3 3 3 3 3
@@ -848,169 +953,222 @@ mus_none
 3 3 3 0 3 3 3 0 3 3 3 0 3 3 0
 3 3 3 3 3 3 3 0 3 3 3 3 3 3 0
 0 0 0 0 0 0 0 0 3 3 3 3 3 3 0
-9
+18
 8 6  crown 0
-8 10  dark_door 0
+7 7  enemy 1k
+9 7  enemy 1k
+6 8  enemy 1k
+10 8  enemy 1k
+5 9  enemy 1k
+11 9  enemy 1k
+4 10  enemy 1k
+12 10  enemy 1k
 8 11  dark_door 0
 8 12  dark_door 0
 8 13  dark_door 0
 8 14  dark_door 0
 1 15  stairs_down 0
+6 15  dark_door 0
+7 15  dark_door 0
 8 15  dark_door 0
 15 15  stairs_up 0
 0
-12F: Staff Only
+13F: Staff Only
 mus_none
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-3 3 3 3 3 3 3 0 3 3 3 3 3 3 3
-3 3 3 3 3 3 0 0 0 3 3 3 3 3 3
-3 3 3 3 3 0 0 0 0 0 3 3 3 3 3
-3 3 3 3 0 0 0 0 0 0 0 3 3 3 3
-3 3 3 0 0 0 0 0 0 0 0 0 3 3 3
-3 3 0 0 0 0 0 0 0 0 0 0 0 3 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 3 0 3 0 0 0 0 0 1
-3 3 0 0 0 3 3 0 3 3 0 0 0 3 1
-3 3 3 0 3 3 3 0 3 3 3 0 3 3 0
-3 3 3 3 3 3 3 0 3 3 3 3 3 3 0
-0 0 0 0 0 0 0 0 3 3 3 3 3 3 0
-32
-1 4  barrier_d 0
-2 4  barrier_d 0
-3 6  door 0
-4 6  enemy 20k
-5 6  enemy 20k
-7 6  door 0
-8 6  shield 0
-10 6  golden_dagger 0
-11 6  door 0
-7 7  door 0
-11 7  door 0
-3 8  door 0
-4 8  enemy 20k
-5 8  enemy 20k
-7 8  door 0
-8 8  door 0
-10 8  door 0
-11 8  door 0
-4 10  enemy 50k
-6 10  enemy 50k
-4 11  door 0
-6 11  door 0
-11 11  door 0
-11 12  door 0
-11 13  door 0
-11 14  door 0
-1 15  stairs_up 0
-5 15  money 25
-6 15  door 0
-8 15  door 0
-9 15  money 25
-11 15  master_key 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 3 3 0 3 3 3 0 3 3 3 0 3 3 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 3 3 3 3 3 3 3 3 3 3 0 0
+0 0 0 3 0 0 0 0 0 0 0 3 0 0 0
+0 0 0 3 0 0 0 0 0 0 0 3 3 0 0
+0 0 0 3 0 0 0 0 0 0 0 3 0 0 0
+0 0 0 3 0 0 0 0 0 0 0 3 0 3 0
+0 0 0 3 0 0 0 0 0 0 0 3 0 0 0
+0 0 0 3 0 0 0 0 0 0 0 3 0 0 3
+0 0 0 3 0 0 0 0 0 0 0 3 0 0 0
+0 0 0 3 0 0 0 0 0 0 0 3 0 0 3
+0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
+0 3 3 0 0 0 0 0 0 0 0 3 0 3 0
+0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
+4
+13 5  key 0
+13 8  money 25
+15 11  key 0
+8 15  stairs_up 0
 0
-13F: Air Ducts
+14F: Air Ducts
 mus_none
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-3 3 3 3 3 3 3 0 3 3 3 3 3 3 3
-3 3 3 3 3 3 0 0 0 3 3 3 3 3 3
-3 3 3 3 3 0 0 0 0 0 3 3 3 3 3
-3 3 3 3 0 0 0 0 0 0 0 3 3 3 3
-3 3 3 0 0 0 0 0 0 0 0 0 3 3 3
-3 3 0 0 0 0 0 0 0 0 0 0 0 3 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 3 0 3 0 0 0 0 0 1
-3 3 0 0 0 3 3 0 3 3 0 0 0 3 1
-3 3 3 0 3 3 3 0 3 3 3 0 3 3 0
-3 3 3 3 3 3 3 0 3 3 3 3 3 3 0
-0 0 0 0 0 0 0 0 3 3 3 3 3 3 0
-32
-1 4  barrier_d 0
-2 4  barrier_d 0
-3 6  door 0
-4 6  enemy 20k
-5 6  enemy 20k
-7 6  door 0
-8 6  shield 0
-10 6  golden_dagger 0
-11 6  door 0
-7 7  door 0
-11 7  door 0
-3 8  door 0
-4 8  enemy 20k
-5 8  enemy 20k
-7 8  door 0
-8 8  door 0
-10 8  door 0
-11 8  door 0
-4 10  enemy 50k
-6 10  enemy 50k
-4 11  door 0
-6 11  door 0
-11 11  door 0
-11 12  door 0
-11 13  door 0
-11 14  door 0
-1 15  stairs_up 0
-5 15  money 25
-6 15  door 0
-8 15  door 0
-9 15  money 25
-11 15  master_key 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 3 3 0 3 3 3 0 3 3 3 0 0
+0 0 0 3 0 0 0 0 0 0 0 3 0 0 0
+0 0 0 3 0 0 3 0 3 0 0 3 0 0 0
+0 0 3 3 0 0 3 0 3 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 3 3 3 0 3 0 3 0 3 3 3 0 0
+0 0 3 0 0 0 3 0 3 0 0 0 0 0 0
+0 0 0 0 0 0 0 3 0 0 0 0 0 0 0
+0 0 0 0 0 3 0 0 0 3 3 3 3 0 0
+0 0 3 3 3 3 0 0 0 0 0 3 0 0 0
+0 0 3 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 3 0 0 0 0 0 3 0 0 0
+42
+5 1  enemy_neg 1k
+11 1  enemy_neg 1k
+5 2  enemy_neg 1k
+11 2  enemy_neg 1k
+6 3  enemy_neg 1M
+10 3  enemy_neg 1M
+14 3  enemy_neg 1M
+15 3  enemy_neg 1M
+8 5  barrier_u 0
+1 6  enemy_neg 1k
+2 6  enemy_neg 1k
+5 6  enemy_neg 1M
+6 6  enemy_neg 1M
+12 6  enemy_neg 1k
+7 7  pay_spike 50
+8 7  pay_spike 50
+9 7  pay_spike 50
+12 7  enemy_neg 1k
+6 8  enemy_neg 1k
+8 8  power_set 100
+10 8  enemy_neg 1M
+14 8  enemy_neg 1k
+15 8  enemy_neg 1k
+8 9  portal 27
+3 10  enemy_neg 1M
+7 10  enemy_neg 1k
+9 10  enemy_neg 1M
+3 11  enemy_neg 1M
+7 11  enemy_neg 1k
+9 11  enemy_neg 1M
+14 11  enemy_neg 1k
+15 11  enemy_neg 1k
+1 12  enemy_neg 1k
+2 12  enemy_neg 1k
+6 13  enemy_neg 1M
+12 13  enemy_neg 1M
+3 14  enemy_neg 1k
+6 14  enemy_neg 1M
+12 14  enemy_neg 1M
+2 15  stairs_up 0
+3 15  enemy_neg 1k
+15 15  stairs_down 0
 0
-14F: The Vault
+15F: The Vault
 mus_none
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-3 3 3 3 3 3 3 0 3 3 3 3 3 3 3
-3 3 3 3 3 3 0 0 0 3 3 3 3 3 3
-3 3 3 3 3 0 0 0 0 0 3 3 3 3 3
-3 3 3 3 0 0 0 0 0 0 0 3 3 3 3
-3 3 3 0 0 0 0 0 0 0 0 0 3 3 3
-3 3 0 0 0 0 0 0 0 0 0 0 0 3 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-3 0 0 0 0 0 3 0 3 0 0 0 0 0 1
-3 3 0 0 0 3 3 0 3 3 0 0 0 3 1
-3 3 3 0 3 3 3 0 3 3 3 0 3 3 0
-3 3 3 3 3 3 3 0 3 3 3 3 3 3 0
-0 0 0 0 0 0 0 0 3 3 3 3 3 3 0
-32
-1 4  barrier_d 0
-2 4  barrier_d 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 3 3 3 3 3 3 3 3 3 3 3 3 3 0
+0 3 0 0 0 0 0 0 0 0 0 0 0 3 0
+0 3 0 2 2 2 2 2 2 2 2 2 0 3 0
+0 3 0 2 0 1 0 1 0 1 0 2 0 3 0
+0 3 0 2 0 1 0 1 0 1 0 2 0 3 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 3 0 0 0 0 0 0 0 0 0 0 0 3 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 3 0
+0 3 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 3 0
+0 3 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 3 0 0 0 0 0 0 0 0 0 0 0 3 0
+0 0 0 3 0 3 0 3 0 3 0 3 0 0 0
+3 0 0 3 0 3 0 3 0 3 0 3 0 0 3
+94
+1 1  gate 0
+2 1  enemy_neg 100k
+3 1  enemy_neg 100k
+4 1  enemy_neg 100k
+5 1  enemy_neg 100k
+6 1  enemy_neg 100k
+7 1  gate 0
+8 1  dark_crown 0
+9 1  pay_spike 50
+10 1  pay_spike 50
+11 1  pay_spike 50
+12 1  pay_spike 50
+13 1  pay_spike 50
+14 1  pay_spike 50
+15 1  enemy 500k
+1 2  enemy_neg 200k
+15 2  pay_spike 50
+1 3  enemy_neg 200k
+3 3  enemy 500k
+4 3  enemy_neg 100k
+5 3  enemy_neg 100k
+6 3  enemy_neg 100k
+7 3  dark_door 0
+8 3  elixir 0
+9 3  dark_door 0
+10 3  enemy 100k
+11 3  enemy 100k
+12 3  enemy 100k
+13 3  enemy_neg 500k
+15 3  pay_spike 50
+1 4  enemy_neg 200k
+3 4  enemy_neg 100k
+13 4  enemy 100k
+15 4  pay_spike 50
+1 5  enemy_neg 200k
+3 5  enemy_neg 100k
+5 5  money 50
+7 5  money 50
+9 5  money 50
+11 5  money 50
+13 5  enemy 100k
+15 5  pay_spike 50
+1 6  gate 0
 3 6  door 0
-4 6  enemy 20k
-5 6  enemy 20k
-7 6  door 0
-8 6  shield 0
-10 6  golden_dagger 0
-11 6  door 0
-7 7  door 0
-11 7  door 0
-3 8  door 0
-4 8  enemy 20k
-5 8  enemy 20k
-7 8  door 0
+5 6  enemy_neg 200k
+7 6  enemy_neg 200k
+9 6  enemy_neg 200k
+11 6  enemy_neg 200k
+13 6  door 0
+15 6  pay_spike 50
+1 8  pay_spike 50
+5 8  enemy 100k
 8 8  door 0
-10 8  door 0
-11 8  door 0
-4 10  enemy 50k
-6 10  enemy 50k
-4 11  door 0
-6 11  door 0
-11 11  door 0
-11 12  door 0
-11 13  door 0
-11 14  door 0
-1 15  stairs_up 0
-5 15  money 25
-6 15  door 0
-8 15  door 0
-9 15  money 25
-11 15  master_key 0
+11 8  enemy 100k
+15 8  pay_spike 50
+1 9 enemy 100k
+2 9  barrier_r 0
+7 9  door 0
+8 9  dark_key 0
+9 9  door 0
+15 9  enemy 100k
+1 10  pay_spike 50
+6 10  door 0
+7 10  dark_key 0
+8 10  curse_weaken 0
+9 10  dark_key 0
+10 10  door 0
+14 10  barrier_l 0
+15 10  pay_spike 50
+1 11 enemy 100k
+2 11  barrier_r 0
+7 11  door 0
+8 11  dark_key 0
+9 11  door 0
+15 11  enemy 100k
+1 12  pay_spike 50
+5 12  enemy 100k
+8 12  door 0
+11 12  enemy 100k
+14 12  barrier_l 0
+15 12  pay_spike 50
+1 13 enemy 100k
+15 13  enemy 100k
+1 14  barrier_r 0
+5 14  enemy_neg 50k
+7 14  enemy_neg 50k
+9 14  enemy_neg 50k
+11 14  enemy_neg 50k
+15 14  barrier_l 0
+5 15  money 50
+7 15  money 50
+9 15  money 50
+11 15  money 50
+14 15  stairs_down 0
 0
 ??F: Mini-Dungeons
 mus_none
@@ -1187,46 +1345,45 @@ mus_none
 1 0 0 0 1 0 0 0 0 0 1 0 0 0 1
 1 0 0 0 0 0 0 0 0 0 1 0 0 0 1
 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1
-41
+40
 3 2  enemy 10
 4 3  enemy_neg 10
 5 3  enemy_neg 10
-9 3  battle_gate 17
+9 3  battle_gate 15
 2 4  enemy 10
 3 4  enemy_neg 10
 12 4  enemy_neg 100
-14 4  enemy_neg 500
+14 4  enemy_neg 400
 15 4  key 0
-10 5  enemy_neg 150
+10 5  enemy 150
 14 5  enemy_neg 150
-3 6  battle_gate 5
+3 6  battle_gate 4
 9 6  enemy_neg 100
 13 6  enemy 250
-1 8  money 50
+1 8  money 25
 2 8  enemy_neg 100
 7 8  enemy_neg 150
-10 8  enemy_neg 250
-12 8  battle_gate 20
+10 8  enemy_neg 300
+12 8  battle_gate 18
 2 9  enemy 30
 4 9  enemy_neg 25
-9 9  enemy_neg 250
-10 9  money 50
-8 10  battle_gate 14
+9 9  enemy_neg 300
+10 9  money 25
+8 10  battle_gate 12
 13 10  enemy_neg 500
 3 11  enemy_neg 25
 6 11  enemy_neg 50
-13 11  battle_gate 21
+13 11  battle_gate 19
 7 12  enemy 100
 9 12  enemy_neg 50
-12 12  money 50
+12 12  money 25
 14 12  enemy 500
 2 13  enemy_neg 15
 9 13  enemy_neg 100
 12 13  enemy 500
-13 13  money 50
 14 13  portal 5
-5 14  battle_gate 10
-8 14  enemy_neg 300
+5 14  battle_gate 8
+8 14  enemy_neg 250
 12 14  enemy 500
 8 15  key 0
 0
@@ -1247,12 +1404,12 @@ mus_none
 2 0 0 0 0 2 0 0 0 0 0 2 0 0 2
 2 0 0 0 0 2 0 0 0 0 0 0 0 0 2
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-40
-2 2  money 50
+41
+2 2  money 25
 3 2  enemy_neg 1k
 4 2  enemy 300
 13 2  enemy_neg 500
-14 2  money 50
+14 2  money 25
 2 3  enemy_neg 1k
 5 3  enemy 500
 14 3  enemy_neg 500
@@ -1282,6 +1439,7 @@ mus_none
 3 12  enemy_neg 250
 4 12  enemy 250
 10 12  enemy_neg 1k
+13 12  money 25
 3 13  enemy_neg 250
 4 13  enemy 250
 8 13  enemy_neg 1k
@@ -1306,8 +1464,8 @@ mus_none
 3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
 3 0 0 0 3 0 0 0 0 0 0 3 0 0 3
 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-45
-2 2  money 50
+46
+2 2  money 25
 3 2  enemy_neg 5k
 6 2  enemy_neg 1k
 10 2  battle_gate 3
@@ -1321,7 +1479,7 @@ mus_none
 13 4  enemy_neg 2k
 14 4  enemy_neg 1k
 3 5  enemy_neg 6k
-6 5  money 50
+6 5  money 25
 7 5  enemy_neg 3k
 9 6  battle_gate 6
 14 6  battle_gate 10
@@ -1333,14 +1491,15 @@ mus_none
 13 8  enemy 3k
 3 9  battle_gate 16
 8 9  enemy_neg 2k
-11 9  enemy_neg 5k
+11 9  enemy_neg 4k
 8 10  enemy_neg 2k
 11 10  key 0
-12 10  enemy_neg 5k
+12 10  enemy_neg 4k
 14 10  enemy_neg 2k
 2 11  enemy 4k
 4 11  enemy_neg 4k
 9 12  enemy_neg 3k
+14 12  money 25
 2 13  enemy_neg 7k
 4 13  enemy_neg 4k
 5 13  battle_gate 19
@@ -1371,10 +1530,10 @@ mus_none
 0 0 0 0 0 0 2 2 2 2 2 2 2 2 0
 0 0 0 2 2 2 2 2 2 2 2 2 2 2 0
 49
-15 1  portal 9
+15 1  portal 10
 4 2  money_door 50
 5 2  curse_weaken 0
-5 4  money 50
+5 4  money 25
 6 4  enemy 250
 8 4  enemy 500
 9 4  enemy 500
@@ -1416,7 +1575,7 @@ mus_none
 9 12  enemy 500
 10 12  enemy 500
 12 12  enemy 250
-13 12  money 50
+13 12  money 25
 4 14  money_door 50
 5 14  money_door 50
 6 14  curse_strengthen 0
@@ -1439,7 +1598,7 @@ mus_none
 0 0 0 0 0 0 2 2 2 2 2 2 2 2 0
 0 0 0 2 2 2 2 2 2 2 2 2 2 2 0
 69
-15 1  portal 9
+15 1  portal 10
 4 2  money_door 50
 5 2  curse_weaken 0
 5 4  enemy 250
@@ -1527,10 +1686,10 @@ mus_none
 0 2 2 2 2 2 2 2 2 0 0 0 0 0 0
 0 2 2 2 2 2 2 2 2 2 2 2 0 0 0
 60
-1 1  portal 9
+1 1  portal 10
 11 2  curse_weaken 0
 12 2  money_door 50
-3 4  money 50
+3 4  money 25
 4 4  enemy_neg 250
 5 4  enemy_neg 250
 6 4  enemy 250
@@ -1538,7 +1697,7 @@ mus_none
 8 4  enemy 250
 9 4  enemy_neg 250
 10 4  enemy_neg 250
-11 4  money 50
+11 4  money 25
 3 5  enemy_neg 250
 5 5  enemy_neg 250
 7 5  enemy_neg 1k
@@ -1547,7 +1706,7 @@ mus_none
 3 6  enemy_neg 250
 5 6  enemy_neg 250
 6 6  enemy_neg 250
-7 6  enemy 250
+7 6  enemy 1k
 8 6  enemy_neg 250
 9 6  enemy_neg 250
 11 6  enemy_neg 250
@@ -1566,7 +1725,7 @@ mus_none
 3 10  enemy_neg 250
 5 10  enemy_neg 250
 6 10  enemy_neg 250
-7 10  enemy 250
+7 10  enemy 1k
 8 10  enemy_neg 250
 9 10  enemy_neg 250
 11 10  enemy_neg 250
@@ -1575,7 +1734,7 @@ mus_none
 7 11  enemy_neg 1k
 9 11  enemy_neg 250
 11 11  enemy_neg 250
-3 12  money 50
+3 12  money 25
 4 12  enemy_neg 250
 5 12  enemy_neg 250
 6 12  enemy 250
@@ -1583,7 +1742,7 @@ mus_none
 8 12  enemy 250
 9 12  enemy_neg 250
 10 12  enemy_neg 250
-11 12  money 50
+11 12  money 25
 10 14  curse_strengthen 0
 11 14  money_door 50
 12 14  money_door 50
@@ -1606,12 +1765,12 @@ mus_none
 0 2 2 2 2 2 2 2 2 0 0 0 0 0 0
 0 2 2 2 2 2 2 2 2 2 2 2 0 0 0
 33
-1 1  portal 9
+1 1  portal 10
 11 2  curse_weaken 0
 12 2  money_door 50
 3 4  key 0
 10 4  mirror_enemy_neg 25k
-11 4  money 50
+11 4  money 25
 3 5  mirror_enemy_neg 10k
 7 5  enemy_neg 5k
 5 6  mirror_enemy 500
@@ -1633,7 +1792,7 @@ mus_none
 9 10  mirror_enemy 500
 7 11  enemy_neg 5k
 11 11  mirror_enemy_neg 10k
-3 12  money 50
+3 12  money 25
 4 12  mirror_enemy_neg 25k
 11 12  key 0
 10 14  curse_strengthen 0
@@ -1763,13 +1922,13 @@ mus_none
 15 2  gem_door 10
 1 3  key 0
 2 3  gem_door 10
-3 3  money 50
+3 3  money 25
 4 3  gem_door 5
 7 3  pickaxe 0
 8 3  gem_door 30
 9 3  key 0
 12 3  gem_door 5
-13 3  money 50
+13 3  money 25
 14 3  gem_door 10
 15 3  key 0
 1 5  pickaxe 0
@@ -1785,18 +1944,18 @@ mus_none
 15 6  gem_door 10
 1 7  key 0
 2 7  gem_door 10
-3 7  money 50
+3 7  money 25
 4 7  gem_door 5
 12 7  gem_door 5
-13 7  money 50
+13 7  money 25
 14 7  gem_door 10
 15 7  key 0
 1 9  key 0
 2 9  gem_door 10
-3 9  money 50
+3 9  money 25
 4 9  gem_door 5
 12 9  gem_door 5
-13 9  money 50
+13 9  money 25
 14 9  gem_door 10
 15 9  key 0
 1 10  gem_door 10
@@ -1861,7 +2020,7 @@ muse_none
 5 6  enemy 100k
 6 6  enemy_neg 100k
 7 6  elixir 0
-8 6  portal 14
+8 6  portal 15
 9 6  key 0
 10 6  enemy_neg 10k
 11 6  enemy 250

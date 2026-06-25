@@ -82,5 +82,21 @@ end
 '''
 match_indent = true
 
+
+#Add items to map list
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '"rapier",'
+position = "after"
+payload = '''
+"curse_weaken",
+"curse_strengthen",
+"solar_morningstar",
+"lunar_scimitar",
+'''
+match_indent = true
+
+
 #DEBUG
 
