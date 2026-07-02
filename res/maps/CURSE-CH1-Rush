@@ -6001,7 +6001,7 @@ mus_none
 3 5  enemy_neg 4M
 4 5  enemy_neg 4M
 5 5  enemy_neg 4M
-8 5  enemy_neg 25M
+8 5  enemy_neg 40M
 11 5  enemy_neg 30M
 12 5  enemy_neg 30M
 13 5  enemy_neg 30M
@@ -6593,7 +6593,7 @@ mus_none
 3 5  enemy_neg 200M
 4 5  enemy_neg 200M
 5 5  enemy_neg 200M
-8 5  enemy_neg 25M
+8 5  enemy_neg 800M
 11 5  enemy_neg 2G
 12 5  enemy_neg 2G
 13 5  enemy_neg 2G
