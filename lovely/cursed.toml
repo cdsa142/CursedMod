@@ -66,3 +66,11 @@ pattern = 'for i=1,15 do'
 payload = 'print("loading floor " .. self[f].name)'
 match_indent = true
 
+
+#[[patches]]
+#[patches.pattern]
+#target = "game.lua"
+#position = "before"
+#pattern = 'local ent_type = floor.entities[i].type'
+#payload = 'print("loading entity " .. floor.entities[i].type)'
+#match_indent = true

@@ -18,7 +18,7 @@ sources = [
 target = "entitydef.lua"
 pattern = "return entitydef"
 position = "before"
-payload = 'addCursedEntities(entitydef)'
+payload = 'addCursedEntities(entitydef, _enemy_can_interact, _enemy_interact, _enemy_undo_store)'
 match_indent = true
 
 #allow entities with a flag set to hide their value
@@ -60,7 +60,8 @@ if ent.lunarAffectedEnt then
     local lastVal = table.remove(lunarEnt.lunarHistory)
     table.remove(lunarEnt.lunacyStacks)
     lunarEnt.value = lastVal
-    lunarEnt.value_str = util.getValueString(lastVal)    
+    lunarEnt.value_str = util.getValueString(lastVal)
+    ent.lunarAffectedEnt = nil
 end
 '''
 match_indent = true
@@ -73,11 +74,14 @@ pattern = 'ent.type = "enemy_neg"'
 position = "after"
 payload = '''
 if ent.solarAffectedEnt then
+    print("solar effected ent:", ent.solarAffectedEnt)
     local solarEnt = game.level_data[game.player.floor].entities[ent.solarAffectedEnt]
     local lastVal = table.remove(solarEnt.solarHistory)
+    print("undo solar: val ", lastVal)
     table.remove(solarEnt.solarStacks)
     solarEnt.value = lastVal
-    solarEnt.value_str = util.getValueString(lastVal)    
+    solarEnt.value_str = util.getValueString(lastVal)
+    ent.solarAffectedEnt = nil  
 end
 '''
 match_indent = true
@@ -99,4 +103,3 @@ match_indent = true
 
 
 #DEBUG
-
