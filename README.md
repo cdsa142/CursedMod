@@ -3,7 +3,7 @@
 **Cursed** is a modification for [Towers of Scale](https://store.steampowered.com/app/3962750/Towers_of_Scale/). It introduces new content and mechanics to expand your gameplay experience while safely maintaining your original save files in a separate directory.
 
 ## Features
-- **3 New Tower:** 17 floors, Including Secret path.
+- **3 New Towers:** 17 floors, Including Secret path.
 - **Several New Mechanics:** Introduces **mirror enemies** and **curses**.
 
 ## Save Data Information
