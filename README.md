@@ -3,8 +3,8 @@
 **Cursed** is a modification for [Towers of Scale](https://store.steampowered.com/app/3962750/Towers_of_Scale/). It introduces new content and mechanics to expand your gameplay experience while safely maintaining your original save files in a separate directory.
 
 ## Features
-- **1 New Tower:** 17 floors, Including Secret path.
-- **2 New Mechanics:** Introduces **mirror enemies** and **curses**.
+- **3 New Tower:** 17 floors, Including Secret path.
+- **Several New Mechanics:** Introduces **mirror enemies** and **curses**.
 
 ## Save Data Information
 To protect your vanilla game progression, the Cursed mod uses a completely separate save directory for its savestates and scores. You can start fresh, or you can port over your existing scores (gems) and unlocks to the modded version at any time (see instructions below). 
