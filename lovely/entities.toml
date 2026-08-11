@@ -30,6 +30,16 @@ position = "at"
 payload = 'if entities[i].value_str ~= "0" and not entitydef[entities[i].type].hide_val then'
 match_indent = true
 
+#treat mirror enemies as negative enemies (when setting base power to negative)
+[[patches]]
+[patches.pattern]
+target = "entitydef.lua"
+pattern = 'if ent.type == "enemy_neg" then'
+position = "at"
+payload = 'if ent.type == "enemy_neg" or ent.type == "mirror_enemy_neg" then'
+match_indent = true
+
+
 #trigger Lunacy/Solar
 [[patches]]
 [patches.pattern]

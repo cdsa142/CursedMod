@@ -535,7 +535,6 @@ entitydef.portal = {
 entitydef.power_set = {
     compendium_header = "Power Resetter",
     spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/power_set.png"),
-    feather_pathfind = true,
     can_interact = function(ent, game)
         return true
     end,
@@ -550,6 +549,19 @@ entitydef.power_set = {
     end,
     undo_perform = function(ent, game, extra_data)
     end,
+}
+
+entitydef.mirror = {
+    compendium_header = "Mirror",
+    spr = love.graphics.newImage("CursedMod/CursedMod/res/sprite/mirror.png"),
+    can_interact = function(ent, game)
+        return true
+    end,
+    interact = function(ent, game)
+        game.player.power = game.player.power * -1;
+        return true
+    end,
+
 }
 
 end
